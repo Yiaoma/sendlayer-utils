@@ -19,6 +19,14 @@
     "publish": "npm clean && npm build && npm publish"
   },
   "author": "Yiaoma",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yiaoma/sendlayer-utils.git"
+  },
+  "homepage": "https://github.com/yiaoma/sendlayer-utils#readme",
+  "bugs": {
+    "url": "https://github.com/yiaoma/sendlayer-utils/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.15.17",
