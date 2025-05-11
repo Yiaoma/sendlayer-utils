@@ -83,9 +83,9 @@ await getWebhooks();
 #### Create Webhook
 
 ```javascript
-import { createWebhooks } from "@yiaoma/sendlayer-utils";
+import { createWebhook } from "@yiaoma/sendlayer-utils";
 
-await getWebhooks({
+await createWebhook({
   Event: "delivery",
   WebhookURL: "www.example.com",
 });
