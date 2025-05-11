@@ -40,5 +40,9 @@ export async function sendLayerRequest<T>({
     );
   }
 
-  return await response.json();
+  if (response.headers.get("Content-Type")?.includes("application/json")) {
+    return (await response.json()) as T;
+  }
+
+  return undefined as T;
 }

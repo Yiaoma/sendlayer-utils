@@ -91,6 +91,16 @@ await createWebhook({
 });
 ```
 
+#### Delete Webhook
+
+```javascript
+import { deleteWebhook } from "@yiaoma/sendlayer-utils";
+
+await deleteWebhook({
+  WebhookID: 972,
+});
+```
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
