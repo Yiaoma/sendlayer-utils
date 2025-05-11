@@ -14,26 +14,81 @@ npm install @yiaoma/sendlayer-utils
 
 ## Usage
 
-### 1. Sending an Email.
+### Email
+
+#### Send Email
 
 ```javascript
 import { sendEmail } from "@yiaoma/sendlayer-utils";
 
 await sendEmail({
-  From: { name: "Me", email: "me@example.com" },
-  To: [{ name: "You", email: "you@example.com" }],
-  Subject: "Hello",
+  From: {
+    name: "Paulie Paloma",
+    email: "paulie@example.com",
+  },
+  To: [
+    {
+      name: "Pattie Paloma",
+      email: "pattie@exampledomain.com",
+    },
+  ],
+  CC: [
+    {
+      name: "Pattie Paloma CC",
+      email: "pattie.cc@exampledomain.com",
+    },
+  ],
+  BCC: [
+    {
+      name: "Pattie Paloma BCC",
+      email: "pattie.bcc@exampledomain.com",
+    },
+  ],
+  ReplyTo: [
+    {
+      name: "Pattie Paloma ReplyTo",
+      email: "pattie.reply@exampledomain.com",
+    },
+  ],
+  Subject: "This is the email subject",
   ContentType: "HTML",
-  HTMLContent: "<strong>Hello world</strong>",
+  HTMLContent: "<html><body><p>This is a test email!</p></body></html>",
+  Tags: ["newsletter, daily"],
+  Headers: {
+    "X-Mailer": "test mailer",
+    "X-Test": "test header",
+  },
+  Attachments: [
+    {
+      Content: "BASE 64 ENCODED STRING",
+      Type: "image/png",
+      Filename: "test.png",
+      Disposition: "attachment",
+      ContentId: "0",
+    },
+  ],
 });
 ```
 
-### 2. Fetching Webhooks
+### Webhooks
+
+#### Get Webhooks
 
 ```javascript
 import { getWebhooks } from "@yiaoma/sendlayer-utils";
 
 await getWebhooks();
+```
+
+#### Create Webhook
+
+```javascript
+import { createWebhooks } from "@yiaoma/sendlayer-utils";
+
+await getWebhooks({
+  Event: "delivery",
+  WebhookURL: "www.example.com",
+});
 ```
 
 ## Contributing

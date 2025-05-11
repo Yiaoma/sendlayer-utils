@@ -10,3 +10,12 @@ export type Webhook = {
   LastResponseAt: string;
   LastResponseTryCounter: string;
 };
+
+export type WebhookPayload = {
+  Event: string;
+  WebhookURL: string;
+};
+
+export type WebhookResponse = {
+  NewWebhookID: number;
+};
