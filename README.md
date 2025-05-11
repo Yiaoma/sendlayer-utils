@@ -70,6 +70,23 @@ await sendEmail({
 });
 ```
 
+### Events
+
+#### Retrieve Events
+
+```javascript
+import { getEvents } from "@yiaoma/sendlayer-utils";
+
+await getEvents({
+  StartDate: 1646901478,
+  EndDate: 1646901480,
+  Event: "delivered",
+  StartFrom: 0,
+  RetrieveCount: 20,
+  MessageID: "10210a3d-7d37-4967-9c20-ad4e26016a78",
+});
+```
+
 ### Webhooks
 
 #### Get Webhooks

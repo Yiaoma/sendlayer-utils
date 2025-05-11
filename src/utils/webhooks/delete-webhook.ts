@@ -5,7 +5,7 @@ export async function deleteWebhook({
 }: {
   WebhookID: number;
 }): Promise<void> {
-  return sendLayerRequest({
+  return sendLayerRequest<void>({
     method: "DELETE",
     endpoint: `/webhooks/${WebhookID}`,
   });
