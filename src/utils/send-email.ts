@@ -1,5 +1,5 @@
-import { BASE_URL } from "../constants";
-import { SendEmailPayload, SendEmailResponse } from "../types/email";
+import { BASE_URL } from "../constants.js";
+import { SendEmailPayload, SendEmailResponse } from "../types/email.js";
 
 /**
  *
