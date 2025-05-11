@@ -14,7 +14,7 @@ npm install @yiaoma/sendlayer-utils
 
 ## Usage
 
-Sending an Email.
+### 1. Sending an Email.
 
 ```javascript
 import { sendEmail } from "@yiaoma/sendlayer-utils";
@@ -26,6 +26,14 @@ await sendEmail({
   ContentType: "HTML",
   HTMLContent: "<strong>Hello world</strong>",
 });
+```
+
+### 2. Fetching Webhooks
+
+```javascript
+import { getWebhooks } from "@yiaoma/sendlayer-utils";
+
+await getWebhooks();
 ```
 
 ## Contributing

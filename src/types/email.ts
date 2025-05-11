@@ -3,7 +3,7 @@ export type ContactDetails = {
   email: string;
 };
 
-export type SendEmailPayload = {
+export type EmailPayload = {
   From: ContactDetails;
   To: ContactDetails[];
   Subject: string;
@@ -26,6 +26,6 @@ export type SendEmailPayload = {
   }[];
 };
 
-export type SendEmailResponse = {
+export type EmailResponse = {
   MessageID: string;
 };

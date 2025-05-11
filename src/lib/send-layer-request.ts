@@ -1,14 +1,16 @@
-import { BASE_URL } from "../constants.js";
-import { SendEmailPayload, SendEmailResponse } from "../types/email.js";
+import { BASE_URL } from "../constants/index.js";
 
-/**
- *
- * @param payload - Email contents and metadata
- * @returns The message ID from Sendlayer.
- */
-export async function sendEmail(
-  payload: SendEmailPayload
-): Promise<SendEmailResponse> {
+interface RequestOptions {
+  endpoint: string;
+  method?: "GET" | "POST" | "PUT" | "DELETE";
+  body?: unknown;
+}
+
+export async function sendLayerRequest<T>({
+  endpoint,
+  method = "GET",
+  body,
+}: RequestOptions): Promise<T> {
   const API_KEY = process.env.SENDLAYER_API_KEY;
   if (!API_KEY) {
     throw new Error(
@@ -16,13 +18,13 @@ export async function sendEmail(
     );
   }
 
-  const response = await fetch(`${BASE_URL}/email`, {
-    method: "POST",
+  const response = await fetch(`${BASE_URL}${endpoint}`, {
+    method,
     headers: {
       Authorization: `Bearer ${API_KEY}`,
       "Content-type": "application/json",
     },
-    body: JSON.stringify(payload),
+    body: body ? JSON.stringify(body) : undefined,
   });
 
   if (!response.ok) {
@@ -38,5 +40,5 @@ export async function sendEmail(
     );
   }
 
-  return (await response.json()) as SendEmailResponse;
+  return await response.json();
 }
