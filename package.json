@@ -1,22 +1,17 @@
 {
   "name": "@yiaoma/sendlayer-utils",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Sendlayer API utils",
   "type": "module",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
-  "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
-  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
-    "clean": "rm -rf dist",
-    "publish": "npm clean && npm build && npm publish"
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && tsc -p ./tsconfig.json",
+    "prepack": "npm run build"
   },
   "author": "Yiaoma",
   "repository": {
@@ -26,6 +21,9 @@
   "homepage": "https://github.com/yiaoma/sendlayer-utils#readme",
   "bugs": {
     "url": "https://github.com/yiaoma/sendlayer-utils/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "license": "MIT",
   "devDependencies": {
